@@ -71,7 +71,7 @@ cd atmunge
 # ...
 
 # build the command
-go install ./cmd/atmunge
+make install
 
 # test it works
 atmunge firehose
@@ -80,62 +80,9 @@ atmunge firehose
 uv sync
 ```
 
-## Running Models
 
-We mainly use bentoml to do these things
+### Running Models
 
-There are single model servers and multi-model servers.
-There are lots of interesting ways to compose them
-and bentoml makes that super easy
-while still giving you low-level access to the models
-if you need it.
+You should now be able to run various models and python code.
 
-In any of the subdirs, run
-
-```sh
-cd ./ai/bento
-make <model>/serve
-```
-
-#### Safety Models:
-
-| Model | class | inputs | outputs | notes |
-|:----|-|-|-|
-| shieldgemma  | safety | text  | policy score | custom policy |
-| shieldgemma2 | safety | image | scores | custom policy |
-| llamaguard4  | safety | multi | boolean | custom policy |
-| promptguard2 | safety | text  | boolean | prompt safety |
-| safety-mesh  | safety | multi | mixed | combo of above |
-
-#### General Models:
-
-| Model | class | inputs | outputs | notes |
-|:----|-|-|-|
-| gemma3       | chat   | multi | policy score | custom policy |
-
-Models to be added
-
-- https://huggingface.co/zentropi-ai/cope-a-9b
-- gemma3-27b-it
-- 
-
-- https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/gemma3.md
-- https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/shieldgemma2.md
-
-> [!NOTE]
-> note to self, write way more about the models, in a separate page(s)
-
-### Testing
-
-Then you can curl, body depending on the model
-
-```sh
-time curl -X 'POST' \
-  'http://localhost:3000/check' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "message": "..."
-  }'
-```
-
+Check out the [ATMunge BentoML Guide](./bento.md) to get started.
