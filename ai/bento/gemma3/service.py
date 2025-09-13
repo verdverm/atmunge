@@ -38,7 +38,7 @@ class Gemma:
 
 
   @bentoml.api
-  async def chat(self,
+  async def gemma3(self,
     # messages
   ) -> Gemma3Response:
 
