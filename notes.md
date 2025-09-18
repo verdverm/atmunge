@@ -25,6 +25,7 @@ Plan:
 
 - https://web.plc.directory/
 - https://github.com/bsky-watch/plc-mirror 
+- https://github.com/bluesky-social/indigo/blob/7773dfbd5a221f76bca48484a78311b0e0eaedbe/cmd/butterfly/README.md
 
 
 
