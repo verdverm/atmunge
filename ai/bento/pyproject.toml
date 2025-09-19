@@ -8,7 +8,6 @@ dependencies = [
     "accelerate>=1.10.1",
     "bentoml>=1.4",
     "bitsandbytes>=0.47.0",
-    "causal-conv1d>=1.5",
     "datasets==3.6.0",
     "fastapi[standard]>=0.116.1",
     "flash-linear-attention",
@@ -18,6 +17,7 @@ dependencies = [
     "torch>=2.8.0",
     "torchvision>=0.23.0",
     "transformers>=4.56.0",
+    "vllm>=0.10.2",
 ]
 
 [tool.uv.sources]
