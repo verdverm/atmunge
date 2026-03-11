@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: atmunge
       POSTGRES_PASSWORD: atmunge
     volumes:
-      - atmunge_db_data:/var/lib/postgresql/data
+      - /data/atmunge/postgres:/var/lib/postgresql
     ports:
     - "5555:5432"
 

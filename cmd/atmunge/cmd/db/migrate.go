@@ -39,7 +39,7 @@ var dbMigrateCmd = &cobra.Command{
 			Logger()
 
 		if len(args) < 1 {
-			return fmt.Errorf("database name required")
+			return fmt.Errorf("database name required: [app,acct]")
 		}
 		dbName := args[0]
 

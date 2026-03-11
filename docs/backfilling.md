@@ -28,6 +28,12 @@ make DATE=YYYYMMDD restore.account_infos
 These process will backfill or sync various parts of the network.
 They self-ratelimit per-pds and run near maximum allowable req/s from a single IP.
 
+```sh
+make db
+make install
+atmunge db migrate app
+```
+
 #### Network wide information
 
 ```sh

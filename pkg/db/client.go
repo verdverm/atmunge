@@ -54,6 +54,9 @@ func GetClient(dbUrl string, ctx context.Context) (*gorm.DB, error) {
 }
 
 func MigrateModels(db *gorm.DB) error {
+	if err := db.Exec("CREATE EXTENSION IF NOT EXISTS pg_trgm;").Error; err != nil {
+		return fmt.Errorf("Failed to enable pg_trgm extension: %v", err)
+	}
 	if err := db.AutoMigrate(&PLCLogEntry{}); err != nil {
 		return fmt.Errorf("auto-migrating DB schema: %w", err)
 	}

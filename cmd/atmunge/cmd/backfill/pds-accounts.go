@@ -45,7 +45,8 @@ var backfillPdsAccountsCmd = &cobra.Command{
 		}
 
 		// load repo list from json (TODO, should put this in a table for consistency, have some command to fetch and sync)
-		j, err := os.ReadFile("./data/atproto-scraping-state.json")
+		// https://github.com/mary-ext/atproto-scraping
+		j, err := os.ReadFile("./extern/atproto-scraping-state.json")
 		if err != nil {
 			log.Error().Msgf("failed to read json file: %s", err)
 			return err

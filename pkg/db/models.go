@@ -66,8 +66,8 @@ type PdsRepo struct {
 	UpdatedAt time.Time
 	DeletedAt time.Time
 
-	PDS    string `gorm:"column:pds;index:idx_pds"`
-	DID    string `gorm:"column:did;index:idx_did"`
+	PDS    string `gorm:"column:pds;index:idx_pds_did,unique"`
+	DID    string `gorm:"column:did;index:idx_pds_did,unique"`
 	Head   string `gorm:"column:head"`
 	Rev    string `gorm:"column:rev"`
 	Active bool   `gorm:"column:active;default:true"`
@@ -84,7 +84,7 @@ type AccountInfo struct {
 	PLCTimestamp string `gorm:"column:plc_timestamp;index:did_timestamp,sort:desc;index:,sort:desc"`
 
 	PDS    string `gorm:"column:pds"`
-	Handle string `gorm:"column:handle;index:idx_handle"`
+	Handle string `gorm:"column:handle;index:idx_handle,type:gin,expression:handle gin_trgm_ops"`
 
 	HandleMatch bool `gorm:"handle_match"`
 	// when did we last check if the handle points at the DID?
